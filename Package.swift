@@ -14,15 +14,15 @@ let package = Package(
             targets: ["GeneralIOs"])
     ],
     dependencies: [
-        .package(name: "General", url: "https://github.com/rosberry/general.git", .branch("feature/xcode-independent")),
-        .package(url: "https://github.com/tuist/XcodeProj.git", .upToNextMajor(from: "7.0.0")),
+        .package(url: "https://github.com/rosberry/GeneralKit.git", .branch("feature/xcode-independent")),
+        .package(url: "https://github.com/tuist/XcodeProj.git", .upToNextMajor(from: "7.0.0"))
     ],
     targets: [
         .target(
             name: "GeneralIOs",
-            dependencies: [.product(name: "GeneralKit", package: "General"), "XcodeProj"]),
+            dependencies: ["GeneralKit", "XcodeProj"]),
         .target(
             name: "General",
-            dependencies: [.product(name: "GeneralKit", package: "General"), "XcodeProj"]),
+            dependencies: ["GeneralIOs"])
     ]
 )

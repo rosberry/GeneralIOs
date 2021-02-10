@@ -11,11 +11,11 @@
         }
       },
       {
-        "package": "General",
-        "repositoryURL": "https://github.com/rosberry/general.git",
+        "package": "GeneralKit",
+        "repositoryURL": "https://github.com/rosberry/GeneralKit.git",
         "state": {
           "branch": "feature/xcode-independent",
-          "revision": "ab57dac92a4de83f9474257ac0535b6dc4e9ddde",
+          "revision": "ce7bc317ea913769a84d20dd595df5fad2e3e698",
           "version": null
         }
       },

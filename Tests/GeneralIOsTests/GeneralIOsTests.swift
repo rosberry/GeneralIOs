@@ -1,3 +1,7 @@
+//
+//  Copyright © 2021 Rosberry. All rights reserved.
+//
+
 import XCTest
 @testable import GeneralIOs
 
@@ -10,6 +14,6 @@ final class GeneralIOsTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testExample", testExample)
     ]
 }

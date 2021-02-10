@@ -42,7 +42,6 @@ public final class Generate: ParsableCommand {
     @Argument(help: "The additional variables for templates.")
     var variables: [GeneralKit.Variable] = []
 
-
     // MARK: - Lifecycle
 
     public init() {
