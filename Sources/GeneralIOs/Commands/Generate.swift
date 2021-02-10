@@ -13,6 +13,8 @@ import GeneralKit
 
 public final class Generate: ParsableCommand {
 
+    public static let configuration: CommandConfiguration = .init(commandName: "gen", abstract: "Generates modules from templates.")
+
     private lazy var specFactory: SpecFactory = .init()
     private lazy var projectService: ProjectService = .init(path: Path(path))
 

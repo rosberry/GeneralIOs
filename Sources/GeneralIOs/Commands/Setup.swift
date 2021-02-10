@@ -23,7 +23,7 @@ public final class Setup: ParsableCommand {
     }
 
     public static let configuration: CommandConfiguration = .init(commandName: "setup",
-                                                           abstract: "Provides your environment with templates")
+                                                                  abstract: "Provides your environment with templates")
 
     @Option(name: [.customLong("repo"), .customShort("r")],
             help: .init(stringLiteral:
