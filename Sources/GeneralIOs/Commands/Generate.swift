@@ -13,6 +13,17 @@ import GeneralKit
 
 public final class Generate: ParsableCommand {
 
+    enum Error: Swift.Error, CustomStringConvertible {
+        case projectName
+
+        var description: String {
+            switch self {
+            case .projectName:
+                return "Project name was not specified"
+            }
+        }
+    }
+
     public static let configuration: CommandConfiguration = .init(commandName: "gen", abstract: "Generates modules from templates.")
 
     private lazy var specFactory: SpecFactory = .init()
@@ -52,7 +63,10 @@ public final class Generate: ParsableCommand {
     public func run() throws {
         let renderer = Renderer(name: name, template: template, path: path, variables: variables, output: output)
         if let xcodeSpec = generalSpec?.xcode {
-            try projectService.createProject(projectName: xcodeSpec.name)
+            guard let projectName = xcodeSpec.name ?? askProject() else {
+                throw Error.projectName
+            }
+            try projectService.createProject(projectName: projectName)
             let target = self.target ?? xcodeSpec.target
             try renderer.render { fileURL in
                 try self.projectService.addFile(targetName: target, filePath: Path(fileURL.path))

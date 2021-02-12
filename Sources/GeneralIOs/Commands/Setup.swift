@@ -73,8 +73,7 @@ public final class Setup: ParsableCommand {
         guard var spec: GeneralSpec = try? specFactory.makeSpec(url: file.url) else {
             throw Error.loadSpec(file.url)
         }
-        guard let name = try (xcodeProject ?? ask("Enter project name",
-                                                  default: ProjectService.findProject()?.url.lastPathComponent)) else {
+        guard let name = xcodeProject ?? askProject() else {
             throw Error.noName
         }
         let target = self.target ?? ask("Target (optional)")

@@ -3,11 +3,11 @@
 //
 
 public struct XcodeSpec: Codable {
-    public let name: String
+    public let name: String?
     public let target: String?
     public let company: String?
 
-    public init(name: String, target: String? = nil, company: String? = nil) {
+    public init(name: String? = nil, target: String? = nil, company: String? = nil) {
         self.name = name
         self.target = target
         self.company = company
